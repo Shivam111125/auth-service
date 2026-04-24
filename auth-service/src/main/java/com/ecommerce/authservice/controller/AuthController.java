@@ -25,7 +25,7 @@ public class AuthController {
 	
 	@GetMapping("/test")
 	public String test() {
-	    return "Secure API working after deployemnet";
+	    return "Secure API working after deployemnet 1";
 	}
 	
 	@PostMapping("/signup")
