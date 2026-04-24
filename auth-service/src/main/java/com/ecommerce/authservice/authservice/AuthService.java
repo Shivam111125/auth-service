@@ -7,9 +7,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.ecommerce.authservice.entity.User;
+import com.ecommerce.authservice.repository.RefreshTokenRepository;
 import com.ecommerce.authservice.repository.UserRepository;
 import com.ecommerce.authservice.security.refreshtoken.RefreshToken;
-import com.ecommerce.authservice.security.refreshtoken.RefreshTokenRepository;
 import com.ecommerce.authservice.util.JwtUtil;
 
 @Service
