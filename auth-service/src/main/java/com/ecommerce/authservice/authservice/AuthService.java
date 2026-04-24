@@ -1,11 +1,15 @@
 package com.ecommerce.authservice.authservice;
 
+import java.time.LocalDateTime;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.ecommerce.authservice.entity.User;
 import com.ecommerce.authservice.repository.UserRepository;
+import com.ecommerce.authservice.security.refreshtoken.RefreshToken;
+import com.ecommerce.authservice.security.refreshtoken.RefreshTokenRepository;
 import com.ecommerce.authservice.util.JwtUtil;
 
 @Service
@@ -17,6 +21,8 @@ public class AuthService {
 	UserRepository userRepository;
 	@Autowired
 	JwtUtil jwtUtil;
+	@Autowired
+	RefreshTokenRepository refreshRepo;
 
 	public String registerUser(User user) {
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
@@ -35,11 +41,19 @@ public class AuthService {
 		return jwtUtil.generateToken(dbUser.getEmail());
 	}
 	public String loginRefreshToken(User reqUser) {
-		User dbUser = userRepository.findByEmail(reqUser.getEmail()).orElseThrow(() -> new RuntimeException("User not found"));
-		if(!passwordEncoder.matches(reqUser.getPassword(), dbUser.getPassword())) {
-			throw new RuntimeException("Wrong password");
-		}
-		return jwtUtil.generateRefreshToken(dbUser.getEmail());
+
+	    User dbUser = userRepository.findByEmail(reqUser.getEmail()).orElseThrow(() -> new RuntimeException("User not found"));
+
+	    if (!passwordEncoder.matches(reqUser.getPassword(), dbUser.getPassword())) {
+	        throw new RuntimeException("Wrong password");
+	    }
+
+	    String refreshToken = jwtUtil.generateRefreshToken(dbUser.getEmail());
+	    RefreshToken rt = new RefreshToken();
+	    rt.setToken(refreshToken);
+	    rt.setExpiryDate(LocalDateTime.now().plusDays(7));
+	    refreshRepo.save(rt);
+	    return refreshToken;
 	}
 
 	public String deleteById(Long id) {
