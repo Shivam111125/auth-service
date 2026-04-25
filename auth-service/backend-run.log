@@ -272,3 +272,73 @@ Hibernate: select un1_0.id,un1_0.created_at,un1_0.note,un1_0.starred,un1_0.user_
 2026-04-25T18:12:52.267+05:30  WARN 5232 --- [nio-8081-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
 2026-04-25T21:39:24.958+05:30  WARN 5232 --- [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3h27s142ms373µs300ns).
 2026-04-26T00:10:38.096+05:30  WARN 5232 --- [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h31m18s408ms451µs800ns).
+Hibernate: insert into users (advance_amount,created_at,deleted_from_month,email,name,owner_id,password,role) values (?,?,?,?,?,?,?,?)
+Hibernate: select u1_0.id,u1_0.advance_amount,u1_0.created_at,u1_0.deleted_from_month,u1_0.email,u1_0.name,u1_0.owner_id,u1_0.password,u1_0.role from users u1_0 where u1_0.email=?
+Hibernate: insert into users (advance_amount,created_at,deleted_from_month,email,name,owner_id,password,role) values (?,?,?,?,?,?,?,?)
+Hibernate: select un1_0.id,un1_0.created_at,un1_0.note,un1_0.starred,un1_0.user_id from user_notes un1_0 left join users u1_0 on u1_0.id=un1_0.user_id where u1_0.id=? and un1_0.starred order by un1_0.created_at desc
+Hibernate: select u1_0.id,u1_0.advance_amount,u1_0.created_at,u1_0.deleted_from_month,u1_0.email,u1_0.name,u1_0.owner_id,u1_0.password,u1_0.role from users u1_0 where u1_0.email=?
+Hibernate: select un1_0.id,un1_0.created_at,un1_0.note,un1_0.starred,un1_0.user_id from user_notes un1_0 left join users u1_0 on u1_0.id=un1_0.user_id where u1_0.id=? and un1_0.starred order by un1_0.created_at desc
+Hibernate: select u1_0.id,u1_0.advance_amount,u1_0.created_at,u1_0.deleted_from_month,u1_0.email,u1_0.name,u1_0.owner_id,u1_0.password,u1_0.role from users u1_0 where u1_0.email=?
+Hibernate: insert into users (advance_amount,created_at,deleted_from_month,email,name,owner_id,password,role) values (?,?,?,?,?,?,?,?)
+Hibernate: insert into users (advance_amount,created_at,deleted_from_month,email,name,owner_id,password,role) values (?,?,?,?,?,?,?,?)
+Hibernate: select u1_0.id,u1_0.advance_amount,u1_0.created_at,u1_0.deleted_from_month,u1_0.email,u1_0.name,u1_0.owner_id,u1_0.password,u1_0.role from users u1_0 where u1_0.email=?
+Hibernate: select un1_0.id,un1_0.created_at,un1_0.note,un1_0.starred,un1_0.user_id from user_notes un1_0 left join users u1_0 on u1_0.id=un1_0.user_id where u1_0.id=? and un1_0.starred order by un1_0.created_at desc
+Hibernate: select u1_0.id,u1_0.advance_amount,u1_0.created_at,u1_0.deleted_from_month,u1_0.email,u1_0.name,u1_0.owner_id,u1_0.password,u1_0.role from users u1_0 where u1_0.email=?
+Hibernate: select count(*) from users u1_0 where u1_0.id=?
+Hibernate: select u1_0.id,u1_0.advance_amount,u1_0.created_at,u1_0.deleted_from_month,u1_0.email,u1_0.name,u1_0.owner_id,u1_0.password,u1_0.role from users u1_0
+Hibernate: select un1_0.id,un1_0.created_at,un1_0.note,un1_0.starred,un1_0.user_id from user_notes un1_0 left join users u1_0 on u1_0.id=un1_0.user_id where u1_0.id=? order by un1_0.created_at desc
+Hibernate: select count(*) from users u1_0 where u1_0.id=?
+Hibernate: select u1_0.id,u1_0.advance_amount,u1_0.created_at,u1_0.deleted_from_month,u1_0.email,u1_0.name,u1_0.owner_id,u1_0.password,u1_0.role from users u1_0 where u1_0.email=?
+Hibernate: select un1_0.id,un1_0.created_at,un1_0.note,un1_0.starred,un1_0.user_id from user_notes un1_0 left join users u1_0 on u1_0.id=un1_0.user_id where u1_0.id=? order by un1_0.created_at desc
+Hibernate: select u1_0.id,u1_0.advance_amount,u1_0.created_at,u1_0.deleted_from_month,u1_0.email,u1_0.name,u1_0.owner_id,u1_0.password,u1_0.role from users u1_0
+Hibernate: select u1_0.id,u1_0.advance_amount,u1_0.created_at,u1_0.deleted_from_month,u1_0.email,u1_0.name,u1_0.owner_id,u1_0.password,u1_0.role from users u1_0 where u1_0.email=?
+Hibernate: select u1_0.id,u1_0.advance_amount,u1_0.created_at,u1_0.deleted_from_month,u1_0.email,u1_0.name,u1_0.owner_id,u1_0.password,u1_0.role from users u1_0
+Hibernate: select u1_0.id,u1_0.advance_amount,u1_0.created_at,u1_0.deleted_from_month,u1_0.email,u1_0.name,u1_0.owner_id,u1_0.password,u1_0.role from users u1_0 where u1_0.email=?
+Hibernate: select u1_0.id,u1_0.advance_amount,u1_0.created_at,u1_0.deleted_from_month,u1_0.email,u1_0.name,u1_0.owner_id,u1_0.password,u1_0.role from users u1_0
+Hibernate: select u1_0.id,u1_0.advance_amount,u1_0.created_at,u1_0.deleted_from_month,u1_0.email,u1_0.name,u1_0.owner_id,u1_0.password,u1_0.role from users u1_0 where u1_0.email=?
+Hibernate: insert into users (advance_amount,created_at,deleted_from_month,email,name,owner_id,password,role) values (?,?,?,?,?,?,?,?)
+Hibernate: select u1_0.id,u1_0.advance_amount,u1_0.created_at,u1_0.deleted_from_month,u1_0.email,u1_0.name,u1_0.owner_id,u1_0.password,u1_0.role from users u1_0 where u1_0.email=?
+Hibernate: select u1_0.id,u1_0.advance_amount,u1_0.created_at,u1_0.deleted_from_month,u1_0.email,u1_0.name,u1_0.owner_id,u1_0.password,u1_0.role from users u1_0
+Hibernate: select sum(ap1_0.amount) from advance_payments ap1_0 where ap1_0.user_id=? and (ap1_0.payment_month=? or (ap1_0.payment_month is null and ap1_0.paid_at>=? and ap1_0.paid_at<?))
+Hibernate: select un1_0.id,un1_0.created_at,un1_0.note,un1_0.starred,un1_0.user_id from user_notes un1_0 left join users u1_0 on u1_0.id=un1_0.user_id where u1_0.id=? and un1_0.starred order by un1_0.created_at desc
+Hibernate: select u1_0.id,u1_0.advance_amount,u1_0.created_at,u1_0.deleted_from_month,u1_0.email,u1_0.name,u1_0.owner_id,u1_0.password,u1_0.role from users u1_0 where u1_0.email=?
+Hibernate: select u1_0.id,u1_0.advance_amount,u1_0.created_at,u1_0.deleted_from_month,u1_0.email,u1_0.name,u1_0.owner_id,u1_0.password,u1_0.role from users u1_0 left join users o1_0 on o1_0.id=u1_0.owner_id where u1_0.id=? and o1_0.id=?
+Hibernate: insert into advance_payments (amount,note,paid_at,payment_mode,payment_month,user_id) values (?,?,?,?,?,?)
+Hibernate: update users set advance_amount=?,created_at=?,deleted_from_month=?,email=?,name=?,owner_id=?,password=?,role=? where id=?
+Hibernate: select u1_0.id,u1_0.advance_amount,u1_0.created_at,u1_0.deleted_from_month,u1_0.email,u1_0.name,u1_0.owner_id,u1_0.password,u1_0.role from users u1_0 where u1_0.email=?
+Hibernate: select u1_0.id,u1_0.advance_amount,u1_0.created_at,u1_0.deleted_from_month,u1_0.email,u1_0.name,u1_0.owner_id,u1_0.password,u1_0.role from users u1_0
+Hibernate: select sum(ap1_0.amount) from advance_payments ap1_0 where ap1_0.user_id=? and (ap1_0.payment_month=? or (ap1_0.payment_month is null and ap1_0.paid_at>=? and ap1_0.paid_at<?))
+Hibernate: select un1_0.id,un1_0.created_at,un1_0.note,un1_0.starred,un1_0.user_id from user_notes un1_0 left join users u1_0 on u1_0.id=un1_0.user_id where u1_0.id=? and un1_0.starred order by un1_0.created_at desc
+Hibernate: select u1_0.id,u1_0.advance_amount,u1_0.created_at,u1_0.deleted_from_month,u1_0.email,u1_0.name,u1_0.owner_id,u1_0.password,u1_0.role from users u1_0 where u1_0.email=?
+Hibernate: select u1_0.id,u1_0.advance_amount,u1_0.created_at,u1_0.deleted_from_month,u1_0.email,u1_0.name,u1_0.owner_id,u1_0.password,u1_0.role from users u1_0 left join users o1_0 on o1_0.id=u1_0.owner_id where u1_0.id=? and o1_0.id=?
+Hibernate: update users set advance_amount=?,created_at=?,deleted_from_month=?,email=?,name=?,owner_id=?,password=?,role=? where id=?
+Hibernate: select u1_0.id,u1_0.advance_amount,u1_0.created_at,u1_0.deleted_from_month,u1_0.email,u1_0.name,u1_0.owner_id,u1_0.password,u1_0.role from users u1_0 where u1_0.email=?
+Hibernate: select u1_0.id,u1_0.advance_amount,u1_0.created_at,u1_0.deleted_from_month,u1_0.email,u1_0.name,u1_0.owner_id,u1_0.password,u1_0.role from users u1_0
+Hibernate: select u1_0.id,u1_0.advance_amount,u1_0.created_at,u1_0.deleted_from_month,u1_0.email,u1_0.name,u1_0.owner_id,u1_0.password,u1_0.role from users u1_0 where u1_0.email=?
+Hibernate: select un1_0.id,un1_0.created_at,un1_0.note,un1_0.starred,un1_0.user_id from user_notes un1_0 left join users u1_0 on u1_0.id=un1_0.user_id where u1_0.id=? and un1_0.starred order by un1_0.created_at desc
+Hibernate: select count(*) from users u1_0 where u1_0.id=?
+Hibernate: select u1_0.id,u1_0.advance_amount,u1_0.created_at,u1_0.deleted_from_month,u1_0.email,u1_0.name,u1_0.owner_id,u1_0.password,u1_0.role from users u1_0 where u1_0.email=?
+Hibernate: select un1_0.id,un1_0.created_at,un1_0.note,un1_0.starred,un1_0.user_id from user_notes un1_0 left join users u1_0 on u1_0.id=un1_0.user_id where u1_0.id=? order by un1_0.created_at desc
+Hibernate: select u1_0.id,u1_0.advance_amount,u1_0.created_at,u1_0.deleted_from_month,u1_0.email,u1_0.name,u1_0.owner_id,u1_0.password,u1_0.role from users u1_0
+Hibernate: select count(*) from users u1_0 where u1_0.id=?
+Hibernate: select un1_0.id,un1_0.created_at,un1_0.note,un1_0.starred,un1_0.user_id from user_notes un1_0 left join users u1_0 on u1_0.id=un1_0.user_id where u1_0.id=? order by un1_0.created_at desc
+Hibernate: select u1_0.id,u1_0.advance_amount,u1_0.created_at,u1_0.deleted_from_month,u1_0.email,u1_0.name,u1_0.owner_id,u1_0.password,u1_0.role from users u1_0 where u1_0.email=?
+Hibernate: select u1_0.id,u1_0.advance_amount,u1_0.created_at,u1_0.deleted_from_month,u1_0.email,u1_0.name,u1_0.owner_id,u1_0.password,u1_0.role from users u1_0
+Hibernate: select u1_0.id,u1_0.advance_amount,u1_0.created_at,u1_0.deleted_from_month,u1_0.email,u1_0.name,u1_0.owner_id,u1_0.password,u1_0.role from users u1_0 where u1_0.email=?
+Hibernate: select u1_0.id,u1_0.advance_amount,u1_0.created_at,u1_0.deleted_from_month,u1_0.email,u1_0.name,u1_0.owner_id,u1_0.password,u1_0.role from users u1_0
+Hibernate: select u1_0.id,u1_0.advance_amount,u1_0.created_at,u1_0.deleted_from_month,u1_0.email,u1_0.name,u1_0.owner_id,u1_0.password,u1_0.role from users u1_0 where u1_0.email=?
+Hibernate: select u1_0.id,u1_0.advance_amount,u1_0.created_at,u1_0.deleted_from_month,u1_0.email,u1_0.name,u1_0.owner_id,u1_0.password,u1_0.role from users u1_0
+Hibernate: select u1_0.id,u1_0.advance_amount,u1_0.created_at,u1_0.deleted_from_month,u1_0.email,u1_0.name,u1_0.owner_id,u1_0.password,u1_0.role from users u1_0 where u1_0.email=?
+Hibernate: insert into users (advance_amount,created_at,deleted_from_month,email,name,owner_id,password,role) values (?,?,?,?,?,?,?,?)
+Hibernate: select u1_0.id,u1_0.advance_amount,u1_0.created_at,u1_0.deleted_from_month,u1_0.email,u1_0.name,u1_0.owner_id,u1_0.password,u1_0.role from users u1_0 where u1_0.email=?
+Hibernate: select u1_0.id,u1_0.advance_amount,u1_0.created_at,u1_0.deleted_from_month,u1_0.email,u1_0.name,u1_0.owner_id,u1_0.password,u1_0.role from users u1_0
+Hibernate: select sum(ap1_0.amount) from advance_payments ap1_0 where ap1_0.user_id=? and (ap1_0.payment_month=? or (ap1_0.payment_month is null and ap1_0.paid_at>=? and ap1_0.paid_at<?))
+Hibernate: select un1_0.id,un1_0.created_at,un1_0.note,un1_0.starred,un1_0.user_id from user_notes un1_0 left join users u1_0 on u1_0.id=un1_0.user_id where u1_0.id=? and un1_0.starred order by un1_0.created_at desc
+Hibernate: select u1_0.id,u1_0.advance_amount,u1_0.created_at,u1_0.deleted_from_month,u1_0.email,u1_0.name,u1_0.owner_id,u1_0.password,u1_0.role from users u1_0 where u1_0.email=?
+Hibernate: select u1_0.id,u1_0.advance_amount,u1_0.created_at,u1_0.deleted_from_month,u1_0.email,u1_0.name,u1_0.owner_id,u1_0.password,u1_0.role from users u1_0 left join users o1_0 on o1_0.id=u1_0.owner_id where u1_0.id=? and o1_0.id=?
+Hibernate: insert into advance_payments (amount,note,paid_at,payment_mode,payment_month,user_id) values (?,?,?,?,?,?)
+Hibernate: update users set advance_amount=?,created_at=?,deleted_from_month=?,email=?,name=?,owner_id=?,password=?,role=? where id=?
+Hibernate: select u1_0.id,u1_0.advance_amount,u1_0.created_at,u1_0.deleted_from_month,u1_0.email,u1_0.name,u1_0.owner_id,u1_0.password,u1_0.role from users u1_0 where u1_0.email=?
+Hibernate: select u1_0.id,u1_0.advance_amount,u1_0.created_at,u1_0.deleted_from_month,u1_0.email,u1_0.name,u1_0.owner_id,u1_0.password,u1_0.role from users u1_0
+Hibernate: select sum(ap1_0.amount) from advance_payments ap1_0 where ap1_0.user_id=? and (ap1_0.payment_month=? or (ap1_0.payment_month is null and ap1_0.paid_at>=? and ap1_0.paid_at<?))
+Hibernate: select un1_0.id,un1_0.created_at,un1_0.note,un1_0.starred,un1_0.user_id from user_notes un1_0 left join users u1_0 on u1_0.id=un1_0.user_id where u1_0.id=? and un1_0.starred order by un1_0.created_at desc
