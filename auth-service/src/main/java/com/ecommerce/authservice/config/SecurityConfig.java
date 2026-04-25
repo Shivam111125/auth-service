@@ -36,7 +36,9 @@ public class SecurityConfig {
 	    	"http://127.0.0.1:3000",
 	    	"http://127.0.0.1:3001",
 	    	"http://127.0.0.1:3002",
-	    	"http://127.0.0.1:5173"
+	    	"http://127.0.0.1:5173",
+	    	"http://advancepaymentui.s3-website.ap-south-1.amazonaws.com",
+	    	"https://advancepaymentui.s3-website.ap-south-1.amazonaws.com"
 	    ));
 	    configuration.setAllowedMethods(java.util.Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
 	    configuration.setAllowedHeaders(java.util.Arrays.asList("*"));
