@@ -200,6 +200,7 @@ public class AuthService {
 			payment.setPaymentMode(request.getPaymentMode());
 			payment.setNote(normalizeOptionalText(request.getNote()));
 			payment.setPaymentMonth(paymentMonth);
+			payment.setPaidAt(request.getPaidAt());
 			payment.setUser(savedWorker);
 			advancePaymentRepository.save(payment);
 			savedWorker.setAdvanceAmount(request.getAdvanceAmount());
@@ -228,6 +229,7 @@ public class AuthService {
 		payment.setPaymentMode(request.getPaymentMode());
 		payment.setNote(normalizeOptionalText(request.getNote()));
 		payment.setPaymentMonth(paymentMonth);
+		payment.setPaidAt(request.getPaidAt());
 		payment.setUser(user);
 
 		AdvancePayment savedPayment = advancePaymentRepository.save(payment);
