@@ -258,6 +258,53 @@ public class AuthService {
 				selectedMonth.plusMonths(1).atDay(1).atStartOfDay());
 	}
 
+	public AdvancePayment updateAdvancePayment(Long userId, Long paymentId, AdvancePaymentRequest request, String ownerEmail) {
+		User user = getOwnedWorker(userId, ownerEmail);
+		AdvancePayment payment = advancePaymentRepository.findById(paymentId)
+				.orElseThrow(() -> new RuntimeException("Advance payment not found"));
+
+		if (!user.getId().equals(payment.getUser().getId())) {
+			throw new RuntimeException("Advance payment not found for this worker");
+		}
+
+		BigDecimal previousAmount = payment.getAmount();
+
+		if (request.getAmount() != null) {
+			if (request.getAmount().signum() <= 0) {
+				throw new RuntimeException("Advance amount must be greater than 0");
+			}
+			payment.setAmount(request.getAmount());
+		}
+
+		if (request.getPaymentMode() != null && !request.getPaymentMode().isBlank()) {
+			if (!PAYMENT_MODES.contains(request.getPaymentMode())) {
+				throw new RuntimeException("Invalid payment mode");
+			}
+			payment.setPaymentMode(request.getPaymentMode());
+		}
+
+		if (request.getNote() != null) {
+			payment.setNote(normalizeOptionalText(request.getNote()));
+		}
+
+		if (request.getPaidAt() != null) {
+			payment.setPaidAt(request.getPaidAt());
+			payment.setPaymentMonth(YearMonth.from(request.getPaidAt()).format(PAYMENT_MONTH_FORMATTER));
+		} else if (request.getMonth() != null && !request.getMonth().isBlank()) {
+			payment.setPaymentMonth(normalizePaymentMonth(request.getMonth()));
+		}
+
+		AdvancePayment savedPayment = advancePaymentRepository.save(payment);
+
+		if (request.getAmount() != null && previousAmount != null && request.getAmount().compareTo(previousAmount) != 0) {
+			BigDecimal currentAdvanceAmount = user.getAdvanceAmount() == null ? BigDecimal.ZERO : user.getAdvanceAmount();
+			user.setAdvanceAmount(currentAdvanceAmount.subtract(previousAmount).add(request.getAmount()));
+			userRepository.save(user);
+		}
+
+		return savedPayment;
+	}
+
 	public ExportFile exportAdvancePayments(AdvancePaymentExportRequest request, String format, String ownerEmail) {
 		List<Long> userIds = request == null ? null : request.getUserIds();
 		if (userIds == null || userIds.isEmpty()) {

@@ -342,3 +342,5 @@ Hibernate: select u1_0.id,u1_0.advance_amount,u1_0.created_at,u1_0.deleted_from_
 Hibernate: select u1_0.id,u1_0.advance_amount,u1_0.created_at,u1_0.deleted_from_month,u1_0.email,u1_0.name,u1_0.owner_id,u1_0.password,u1_0.role from users u1_0
 Hibernate: select sum(ap1_0.amount) from advance_payments ap1_0 where ap1_0.user_id=? and (ap1_0.payment_month=? or (ap1_0.payment_month is null and ap1_0.paid_at>=? and ap1_0.paid_at<?))
 Hibernate: select un1_0.id,un1_0.created_at,un1_0.note,un1_0.starred,un1_0.user_id from user_notes un1_0 left join users u1_0 on u1_0.id=un1_0.user_id where u1_0.id=? and un1_0.starred order by un1_0.created_at desc
+2026-04-26T05:54:37.324+05:30  WARN 5232 --- [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3h26s764ms2µs).
+2026-04-29T23:51:52.655+05:30  WARN 5232 --- [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3d17h57m19s300ms268µs200ns).

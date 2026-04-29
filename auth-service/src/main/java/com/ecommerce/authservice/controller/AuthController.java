@@ -89,6 +89,12 @@ public class AuthController {
 		return authService.getAdvancePaymentHistory(id, month, authentication.getName());
 	}
 
+	@PutMapping("/users/{userId}/advance-payments/{paymentId}")
+	public AdvancePayment updateAdvancePayment(@PathVariable Long userId, @PathVariable Long paymentId,
+			@RequestBody AdvancePaymentRequest request, Authentication authentication) {
+		return authService.updateAdvancePayment(userId, paymentId, request, authentication.getName());
+	}
+
 	@PostMapping("/exports/advance-payments")
 	public ResponseEntity<byte[]> exportAdvancePayments(@RequestParam String format,
 			@RequestBody AdvancePaymentExportRequest request,
