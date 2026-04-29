@@ -52,7 +52,15 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 @Service
 public class AuthService {
 
-	private static final Set<String> PAYMENT_MODES = Set.copyOf(Arrays.asList("Paytm", "PhonePe", "Google Pay", "Cash", "Cheque"));
+	private static final Set<String> PAYMENT_MODES = Set.copyOf(Arrays.asList(
+			"Paytm",
+			"PhonePe",
+			"Google Pay",
+			"WhatsApp Pay",
+			"Bank Transfer",
+			"Bank",
+			"Cash",
+			"Cheque"));
 	private static final DateTimeFormatter EXPORT_DATE_FORMATTER = DateTimeFormatter.ofPattern("dd MMM yyyy, hh:mm a", Locale.ENGLISH);
 	private static final DateTimeFormatter PAYMENT_MONTH_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM");
 
@@ -200,7 +208,7 @@ public class AuthService {
 			payment.setPaymentMode(request.getPaymentMode());
 			payment.setNote(normalizeOptionalText(request.getNote()));
 			payment.setPaymentMonth(paymentMonth);
-			payment.setPaidAt(request.getPaidAt());
+			payment.setPaidAt(request.getPaidAt() == null ? LocalDateTime.now() : request.getPaidAt());
 			payment.setUser(savedWorker);
 			advancePaymentRepository.save(payment);
 			savedWorker.setAdvanceAmount(request.getAdvanceAmount());
@@ -229,7 +237,7 @@ public class AuthService {
 		payment.setPaymentMode(request.getPaymentMode());
 		payment.setNote(normalizeOptionalText(request.getNote()));
 		payment.setPaymentMonth(paymentMonth);
-		payment.setPaidAt(request.getPaidAt());
+		payment.setPaidAt(request.getPaidAt() == null ? LocalDateTime.now() : request.getPaidAt());
 		payment.setUser(user);
 
 		AdvancePayment savedPayment = advancePaymentRepository.save(payment);
